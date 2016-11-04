@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96DCA42A1DB04F1300CF24FE /* CSSLayout-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 96DCA4281DB04F1300CF24FE /* CSSLayout-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DCA42E1DB04F7F00CF24FE /* CSSLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3FB1DADFFFD00A1A123 /* CSSLayout.swift */; };
+		96DCA42F1DB04F7F00CF24FE /* CSSLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C578E31DAE119C00DC12E5 /* CSSLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DCA4301DB04F8E00CF24FE /* CSSMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C3B3DB1DADFD4400A1A123 /* CSSMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DCA4311DB04F9700CF24FE /* CSSNodeList.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C3B3DD1DADFD4400A1A123 /* CSSNodeList.h */; };
+		96DCA4321DB04FA500CF24FE /* CSSLayout.c in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3D91DADFD4400A1A123 /* CSSLayout.c */; };
+		96DCA4331DB04FA500CF24FE /* CSSNodeList.c in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3DC1DADFD4400A1A123 /* CSSNodeList.c */; };
 		D8C3B3BE1DADFCB000A1A123 /* CSSLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C3B3B41DADFCB000A1A123 /* CSSLayout.framework */; };
 		D8C3B3C31DADFCB000A1A123 /* CSSLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3C21DADFCB000A1A123 /* CSSLayoutTests.swift */; };
 		D8C3B3FC1DADFFFD00A1A123 /* CSSLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3FB1DADFFFD00A1A123 /* CSSLayout.swift */; };
 		D8C578DD1DAE0F6300DC12E5 /* CSSLayout.c in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3D91DADFD4400A1A123 /* CSSLayout.c */; };
-		D8C578DE1DAE0F6300DC12E5 /* CSSLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C3B3DA1DADFD4400A1A123 /* CSSLayout.h */; };
 		D8C578DF1DAE0F6300DC12E5 /* CSSMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C3B3DB1DADFD4400A1A123 /* CSSMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8C578E01DAE0F6300DC12E5 /* CSSNodeList.c in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3DC1DADFD4400A1A123 /* CSSNodeList.c */; };
 		D8C578E11DAE0F6300DC12E5 /* CSSNodeList.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C3B3DD1DADFD4400A1A123 /* CSSNodeList.h */; };
@@ -29,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96DCA4261DB04F1300CF24FE /* CSSLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSSLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DCA4281DB04F1300CF24FE /* CSSLayout-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSSLayout-OSX.h"; sourceTree = "<group>"; };
+		96DCA4291DB04F1300CF24FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C3B3B41DADFCB000A1A123 /* CSSLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSSLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C3B3B81DADFCB000A1A123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C3B3BD1DADFCB000A1A123 /* CSSLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSSLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +54,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		96DCA4221DB04F1300CF24FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8C3B3B01DADFCB000A1A123 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,12 +79,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96DCA4271DB04F1300CF24FE /* CSSLayout-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				96DCA4281DB04F1300CF24FE /* CSSLayout-OSX.h */,
+				96DCA4291DB04F1300CF24FE /* Info.plist */,
+			);
+			path = "CSSLayout-OSX";
+			sourceTree = "<group>";
+		};
 		D8C3B3AA1DADFCB000A1A123 = {
 			isa = PBXGroup;
 			children = (
 				D8C3B3B61DADFCB000A1A123 /* Sources */,
 				D8C3B3C11DADFCB000A1A123 /* Tests */,
 				D8C3B3D81DADFD3200A1A123 /* ThirdParty */,
+				96DCA4271DB04F1300CF24FE /* CSSLayout-OSX */,
 				D8C3B3B51DADFCB000A1A123 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +104,7 @@
 			children = (
 				D8C3B3B41DADFCB000A1A123 /* CSSLayout.framework */,
 				D8C3B3BD1DADFCB000A1A123 /* CSSLayoutTests.xctest */,
+				96DCA4261DB04F1300CF24FE /* CSSLayout.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,12 +145,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		96DCA4231DB04F1300CF24FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96DCA4301DB04F8E00CF24FE /* CSSMacros.h in Headers */,
+				96DCA42F1DB04F7F00CF24FE /* CSSLayout.h in Headers */,
+				96DCA4311DB04F9700CF24FE /* CSSNodeList.h in Headers */,
+				96DCA42A1DB04F1300CF24FE /* CSSLayout-OSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8C3B3B11DADFCB000A1A123 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D8C578E41DAE119C00DC12E5 /* CSSLayout.h in Headers */,
-				D8C578DE1DAE0F6300DC12E5 /* CSSLayout.h in Headers */,
 				D8C578E11DAE0F6300DC12E5 /* CSSNodeList.h in Headers */,
 				D8C578DF1DAE0F6300DC12E5 /* CSSMacros.h in Headers */,
 			);
@@ -132,6 +169,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		96DCA4251DB04F1300CF24FE /* CSSLayout-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96DCA42D1DB04F1300CF24FE /* Build configuration list for PBXNativeTarget "CSSLayout-OSX" */;
+			buildPhases = (
+				96DCA4211DB04F1300CF24FE /* Sources */,
+				96DCA4221DB04F1300CF24FE /* Frameworks */,
+				96DCA4231DB04F1300CF24FE /* Headers */,
+				96DCA4241DB04F1300CF24FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CSSLayout-OSX";
+			productName = "CSSLayout-OSX";
+			productReference = 96DCA4261DB04F1300CF24FE /* CSSLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D8C3B3B31DADFCB000A1A123 /* CSSLayout */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8C3B3C81DADFCB000A1A123 /* Build configuration list for PBXNativeTarget "CSSLayout" */;
@@ -175,9 +230,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Matias Cudich";
 				TargetAttributes = {
+					96DCA4251DB04F1300CF24FE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8S7Y6KVRU5;
+						ProvisioningStyle = Automatic;
+					};
 					D8C3B3B31DADFCB000A1A123 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 46UKZ786J3;
@@ -205,11 +265,19 @@
 			targets = (
 				D8C3B3B31DADFCB000A1A123 /* CSSLayout */,
 				D8C3B3BC1DADFCB000A1A123 /* CSSLayoutTests */,
+				96DCA4251DB04F1300CF24FE /* CSSLayout-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		96DCA4241DB04F1300CF24FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8C3B3B21DADFCB000A1A123 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +295,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		96DCA4211DB04F1300CF24FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96DCA4331DB04FA500CF24FE /* CSSNodeList.c in Sources */,
+				96DCA42E1DB04F7F00CF24FE /* CSSLayout.swift in Sources */,
+				96DCA4321DB04FA500CF24FE /* CSSLayout.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8C3B3AF1DADFCB000A1A123 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +334,52 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		96DCA42B1DB04F1300CF24FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8S7Y6KVRU5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "CSSLayout-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wildthink.lib.CSSLayout-OSX";
+				PRODUCT_NAME = CSSLayout;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		96DCA42C1DB04F1300CF24FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8S7Y6KVRU5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "CSSLayout-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wildthink.lib.CSSLayout-OSX";
+				PRODUCT_NAME = CSSLayout;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		D8C3B3C61DADFCB000A1A123 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,6 +398,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -327,6 +452,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -427,6 +553,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		96DCA42D1DB04F1300CF24FE /* Build configuration list for PBXNativeTarget "CSSLayout-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96DCA42B1DB04F1300CF24FE /* Debug */,
+				96DCA42C1DB04F1300CF24FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D8C3B3AE1DADFCB000A1A123 /* Build configuration list for PBXProject "CSSLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
