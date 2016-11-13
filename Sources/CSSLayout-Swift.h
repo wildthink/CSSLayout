@@ -14,5 +14,7 @@
 //
 
 #import <CSSLayout/CSSLayout.h>
+#import <CSSLayout/CSSMacros.h>
+#import <CSSLayout/CSSNodeList.h>
 
 #endif /* CSSLayout_Swift_h */

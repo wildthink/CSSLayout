@@ -70,12 +70,14 @@ public struct CSSLayout {
 
 public struct CSSLayout: CustomStringConvertible
 {
+    public let key: String?
     public let userInfo: Any?
     public let frame: CGRect
     public let children: [CSSLayout]
 
     public init (root: CSSNode,
-                             availableWidth: Float = Float.nan, availableHeight: Float = Float.nan)
+                 availableWidth: Float = Float.nan,
+                 availableHeight: Float = Float.nan)
     {
         CSSNodeCalculateLayout(root.nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
         self.init(node: root)
@@ -83,6 +85,7 @@ public struct CSSLayout: CustomStringConvertible
 
     init(node: CSSNode) {
 
+        self.key = node.key
         self.frame = node.frame
         self.userInfo = node.userInfo
         self.children =  node.children.map { return CSSLayout(node: $0) }
@@ -104,6 +107,7 @@ public struct CSSLayout: CustomStringConvertible
 public class CSSNode: Hashable
 {
 
+    public var key: String? = nil
     public var userInfo: Any?
 
     public func apply ( f: (CSSNode) -> Void) {
@@ -415,12 +419,13 @@ public class CSSNode: Hashable
     self.nodeRef = nodeRef
   }
 
-  public init(direction: CSSDirection = CSSDirectionLTR, flexDirection: CSSFlexDirection = CSSFlexDirectionColumn, justifyContent: CSSJustify = CSSJustifyFlexStart, alignContent: CSSAlign = CSSAlignAuto, alignItems: CSSAlign = CSSAlignStretch, alignSelf: CSSAlign = CSSAlignStretch, positionType: CSSPositionType = CSSPositionTypeRelative, flexWrap: CSSWrapType = CSSWrapTypeNoWrap, overflow: CSSOverflow = CSSOverflowVisible, flexGrow: Float = 0, flexShrink: Float = 0, margin: CSSEdges = CSSEdges(), position: CSSEdges = CSSEdges(), padding: CSSEdges = CSSEdges(), size: CSSSize = CSSSize(width: Float.nan, height: Float.nan), minSize: CSSSize = CSSSize(width: 0, height: 0), maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude), measure: CSSMeasureFunc? = nil, context: UnsafeMutableRawPointer? = nil,
+    public init(key: String? = nil, direction: CSSDirection = CSSDirectionLTR, flexDirection: CSSFlexDirection = CSSFlexDirectionColumn, justifyContent: CSSJustify = CSSJustifyFlexStart, alignContent: CSSAlign = CSSAlignAuto, alignItems: CSSAlign = CSSAlignStretch, alignSelf: CSSAlign = CSSAlignStretch, positionType: CSSPositionType = CSSPositionTypeRelative, flexWrap: CSSWrapType = CSSWrapTypeNoWrap, overflow: CSSOverflow = CSSOverflowVisible, flexGrow: Float = 0, flexShrink: Float = 0, margin: CSSEdges = CSSEdges(), position: CSSEdges = CSSEdges(), padding: CSSEdges = CSSEdges(), size: CSSSize = CSSSize(width: Float.nan, height: Float.nan), minSize: CSSSize = CSSSize(width: 0, height: 0), maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude), measure: CSSMeasureFunc? = nil, context: UnsafeMutableRawPointer? = nil,
       userInfo: Any? = nil,
       children: [CSSNode] = [])
   {
     self.nodeRef = CSSNodeNew()
 
+    self.key = key
     self.direction = direction
     self.flexDirection = flexDirection
     self.justifyContent = justifyContent

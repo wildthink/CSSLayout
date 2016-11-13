@@ -91,9 +91,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.osx.source_files  = "Carthage/Checkouts/css-layout/CSSLayout/*.{h,m}", "Sources/*.swift"
-  s.ios.source_files   = 'Carthage/Checkouts/css-layout/CSSLayoutKit/*.{h,m}',  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,m}", "Sources/*.swift"
-
+ #  s.osx.source_files  = "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.swift"
+#   s.ios.source_files   = "CSSLayout",  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.swift"
+  s.source_files   = "CSSLayout",  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"
 
   s.public_header_files = "Carthage/Checkouts/css-layout/CSSLayout/*.h", "Sources/*.h"
