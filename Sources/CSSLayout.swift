@@ -46,6 +46,7 @@ public func ==(lhs: CSSSize, rhs: CSSSize) -> Bool {
   return lhs.height == rhs.height && lhs.width == rhs.width
 }
 
+/*
 public struct CSSLayout {
   public let frame: CGRect
   public let children: [CSSLayout]
@@ -65,8 +66,59 @@ public struct CSSLayout {
     self.children = children
   }
 }
+*/
 
-public class CSSNode: Hashable {
+public struct CSSLayout: CustomStringConvertible
+{
+    public let userInfo: Any?
+    public let frame: CGRect
+    public let children: [CSSLayout]
+
+    public init (root: CSSNode,
+                             availableWidth: Float = Float.nan, availableHeight: Float = Float.nan)
+    {
+        CSSNodeCalculateLayout(root.nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
+        self.init(node: root)
+    }
+
+    init(node: CSSNode) {
+
+        self.frame = node.frame
+        self.userInfo = node.userInfo
+        self.children =  node.children.map { return CSSLayout(node: $0) }
+    }
+
+
+    public func apply ( f: (CSSLayout) -> Void) {
+        f (self)
+        for c in children { c.apply(f: f) }
+    }
+
+    public var description: String {
+        return children.isEmpty ?
+            "(CSSLayout frame: \(frame))"
+            : "(CSSLayout frame: \(frame) children: \(children))"
+    }
+}
+
+public class CSSNode: Hashable
+{
+
+    public var userInfo: Any?
+
+    public func apply ( f: (CSSNode) -> Void) {
+        f (self)
+        for c in children { c.apply(f: f) }
+    }
+
+    public var frame: CGRect {
+        let x = CGFloat(CSSNodeLayoutGetLeft(nodeRef))
+        let y = CGFloat(CSSNodeLayoutGetTop(nodeRef))
+        let width = CGFloat(CSSNodeLayoutGetWidth(nodeRef))
+        let height = CGFloat(CSSNodeLayoutGetHeight(nodeRef))
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+
   public var direction: CSSDirection {
     set {
       if newValue != direction {
@@ -300,6 +352,8 @@ public class CSSNode: Hashable {
     }
   }
 
+    // jmj
+    /*
   public var isTextNode: Bool {
     set {
       CSSNodeSetIsTextnode(nodeRef, isTextNode)
@@ -335,6 +389,17 @@ public class CSSNode: Hashable {
       }
     }
   }
+ */
+
+    public var children: [CSSNode] = [] {
+        didSet {
+            var ndx = 0
+            for c in children {
+                insertChild(child: c, at: ndx)
+                ndx += 1
+            }
+        }
+    }
 
   public var hashValue: Int {
     return nodeRef.hashValue
@@ -350,7 +415,10 @@ public class CSSNode: Hashable {
     self.nodeRef = nodeRef
   }
 
-  public init(direction: CSSDirection = CSSDirectionLTR, flexDirection: CSSFlexDirection = CSSFlexDirectionColumn, justifyContent: CSSJustify = CSSJustifyFlexStart, alignContent: CSSAlign = CSSAlignAuto, alignItems: CSSAlign = CSSAlignStretch, alignSelf: CSSAlign = CSSAlignStretch, positionType: CSSPositionType = CSSPositionTypeRelative, flexWrap: CSSWrapType = CSSWrapTypeNoWrap, overflow: CSSOverflow = CSSOverflowVisible, flexGrow: Float = 0, flexShrink: Float = 0, margin: CSSEdges = CSSEdges(), position: CSSEdges = CSSEdges(), padding: CSSEdges = CSSEdges(), size: CSSSize = CSSSize(width: Float.nan, height: Float.nan), minSize: CSSSize = CSSSize(width: 0, height: 0), maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude), measure: CSSMeasureFunc? = nil, context: UnsafeMutableRawPointer? = nil, children: [CSSNode] = []) {
+  public init(direction: CSSDirection = CSSDirectionLTR, flexDirection: CSSFlexDirection = CSSFlexDirectionColumn, justifyContent: CSSJustify = CSSJustifyFlexStart, alignContent: CSSAlign = CSSAlignAuto, alignItems: CSSAlign = CSSAlignStretch, alignSelf: CSSAlign = CSSAlignStretch, positionType: CSSPositionType = CSSPositionTypeRelative, flexWrap: CSSWrapType = CSSWrapTypeNoWrap, overflow: CSSOverflow = CSSOverflowVisible, flexGrow: Float = 0, flexShrink: Float = 0, margin: CSSEdges = CSSEdges(), position: CSSEdges = CSSEdges(), padding: CSSEdges = CSSEdges(), size: CSSSize = CSSSize(width: Float.nan, height: Float.nan), minSize: CSSSize = CSSSize(width: 0, height: 0), maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude), measure: CSSMeasureFunc? = nil, context: UnsafeMutableRawPointer? = nil,
+      userInfo: Any? = nil,
+      children: [CSSNode] = [])
+  {
     self.nodeRef = CSSNodeNew()
 
     self.direction = direction
@@ -372,6 +440,7 @@ public class CSSNode: Hashable {
     self.maxSize = maxSize
     self.measure = measure
     self.context = context
+    self.userInfo = userInfo
     self.children = children
   }
 
@@ -387,9 +456,13 @@ public class CSSNode: Hashable {
     CSSNodeMarkDirty(nodeRef)
   }
 
+  public func calculateLayout(availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) {
+    CSSNodeCalculateLayout(nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
+  }
+
   public func layout(availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) -> CSSLayout {
     CSSNodeCalculateLayout(nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
-    return CSSLayout(nodeRef: nodeRef)
+    return CSSLayout(node: self)
   }
 
   public func debugPrint() {

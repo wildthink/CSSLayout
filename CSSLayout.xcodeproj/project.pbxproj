@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		968E95FA1DD8122700DC8C49 /* CSSLayout-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 968E95F91DD8120E00DC8C49 /* CSSLayout-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		968E95FB1DD8122E00DC8C49 /* CSSLayout-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 968E95F91DD8120E00DC8C49 /* CSSLayout-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96DCA42A1DB04F1300CF24FE /* CSSLayout-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 96DCA4281DB04F1300CF24FE /* CSSLayout-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96DCA42E1DB04F7F00CF24FE /* CSSLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3B3FB1DADFFFD00A1A123 /* CSSLayout.swift */; };
 		96DCA42F1DB04F7F00CF24FE /* CSSLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C578E31DAE119C00DC12E5 /* CSSLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		968E95F91DD8120E00DC8C49 /* CSSLayout-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSSLayout-Swift.h"; sourceTree = "<group>"; };
 		96DCA4261DB04F1300CF24FE /* CSSLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSSLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DCA4281DB04F1300CF24FE /* CSSLayout-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSSLayout-OSX.h"; sourceTree = "<group>"; };
 		96DCA4291DB04F1300CF24FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 				D8C3B3B81DADFCB000A1A123 /* Info.plist */,
 				D8C3B3FB1DADFFFD00A1A123 /* CSSLayout.swift */,
 				D8C578E31DAE119C00DC12E5 /* CSSLayout.h */,
+				968E95F91DD8120E00DC8C49 /* CSSLayout-Swift.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -151,6 +155,7 @@
 			files = (
 				96DCA4301DB04F8E00CF24FE /* CSSMacros.h in Headers */,
 				96DCA42F1DB04F7F00CF24FE /* CSSLayout.h in Headers */,
+				968E95FB1DD8122E00DC8C49 /* CSSLayout-Swift.h in Headers */,
 				96DCA4311DB04F9700CF24FE /* CSSNodeList.h in Headers */,
 				96DCA42A1DB04F1300CF24FE /* CSSLayout-OSX.h in Headers */,
 			);
@@ -160,6 +165,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968E95FA1DD8122700DC8C49 /* CSSLayout-Swift.h in Headers */,
 				D8C578E41DAE119C00DC12E5 /* CSSLayout.h in Headers */,
 				D8C578E11DAE0F6300DC12E5 /* CSSNodeList.h in Headers */,
 				D8C578DF1DAE0F6300DC12E5 /* CSSMacros.h in Headers */,
@@ -495,7 +501,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiascudich.CSSLayout;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildthink.lib.CSSLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -517,7 +523,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiascudich.CSSLayout;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildthink.lib.CSSLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -560,6 +566,7 @@
 				96DCA42C1DB04F1300CF24FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8C3B3AE1DADFCB000A1A123 /* Build configuration list for PBXProject "CSSLayout" */ = {
 			isa = XCConfigurationList;

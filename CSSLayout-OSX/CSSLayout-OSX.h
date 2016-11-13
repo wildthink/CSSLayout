@@ -6,7 +6,8 @@
 //  Copyright © 2016 Matias Cudich. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+//#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for CSSLayout-OSX.
 FOUNDATION_EXPORT double CSSLayout_OSXVersionNumber;
