@@ -70,7 +70,7 @@ public struct CSSLayout {
 
 public struct CSSLayout: CustomStringConvertible
 {
-    public let key: String?
+    public let key: String
     public let userInfo: Any?
     public let frame: CGRect
     public let children: [CSSLayout]
@@ -85,7 +85,7 @@ public struct CSSLayout: CustomStringConvertible
 
     init(node: CSSNode) {
 
-        self.key = node.key
+        self.key = node.key ?? ""
         self.frame = node.frame
         self.userInfo = node.userInfo
         self.children =  node.children.map { return CSSLayout(node: $0) }
@@ -99,8 +99,8 @@ public struct CSSLayout: CustomStringConvertible
 
     public var description: String {
         return children.isEmpty ?
-            "(CSSLayout frame: \(frame))"
-            : "(CSSLayout frame: \(frame) children: \(children))"
+            "(CSSLayout \(key) frame: \(frame))"
+            : "(CSSLayout \(key) frame: \(frame) children: \(children))"
     }
 }
 
