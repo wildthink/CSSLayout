@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 #  Be sure to run `pod spec lint CSSLayout.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
@@ -93,10 +94,12 @@ Pod::Spec.new do |s|
 
  #  s.osx.source_files  = "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.swift"
 #   s.ios.source_files   = "CSSLayout",  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.swift"
-  s.source_files   = "CSSLayout",  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.{h,m,swift}"
+#  s.source_files   = "CSSLayout",  "Carthage/Checkouts/css-layout/CSSLayout/*.{h,c,m}", "Sources/*.{h,m,swift}"
+  s.source_files   = "Sources/*.{h,c,m,swift}"
   s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "Carthage/Checkouts/css-layout/CSSLayout/*.h", "Sources/*.h"
+  s.public_header_files = "Sources/*.h"
+#  s.public_header_files = "Carthage/Checkouts/css-layout/CSSLayout/*.h", "Sources/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――― #
