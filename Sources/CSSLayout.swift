@@ -419,9 +419,26 @@ public class CSSNode: Hashable
     self.nodeRef = nodeRef
   }
 
-    public init(key: String? = nil, direction: CSSDirection = CSSDirectionLTR, flexDirection: CSSFlexDirection = CSSFlexDirectionColumn, justifyContent: CSSJustify = CSSJustifyFlexStart, alignContent: CSSAlign = CSSAlignAuto, alignItems: CSSAlign = CSSAlignStretch, alignSelf: CSSAlign = CSSAlignStretch, positionType: CSSPositionType = CSSPositionTypeRelative, flexWrap: CSSWrapType = CSSWrapTypeNoWrap, overflow: CSSOverflow = CSSOverflowVisible, flexGrow: Float = 0, flexShrink: Float = 0, margin: CSSEdges = CSSEdges(), position: CSSEdges = CSSEdges(), padding: CSSEdges = CSSEdges(), size: CSSSize = CSSSize(width: Float.nan, height: Float.nan), minSize: CSSSize = CSSSize(width: 0, height: 0), maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude), measure: CSSMeasureFunc? = nil, context: UnsafeMutableRawPointer? = nil,
-      userInfo: Any? = nil,
-      children: [CSSNode] = [])
+    public init(key: String? = nil, userInfo: Any? = nil,
+                direction: CSSDirection = CSSDirectionLTR,
+                flexDirection: CSSFlexDirection = CSSFlexDirectionColumn,
+                justifyContent: CSSJustify = CSSJustifyFlexStart,
+                alignContent: CSSAlign = CSSAlignAuto,
+                alignItems: CSSAlign = CSSAlignStretch,
+                alignSelf: CSSAlign = CSSAlignStretch,
+                positionType: CSSPositionType = CSSPositionTypeRelative,
+                flexWrap: CSSWrapType = CSSWrapTypeNoWrap,
+                overflow: CSSOverflow = CSSOverflowVisible,
+                flexGrow: Float = 0, flexShrink: Float = 0,
+                margin: CSSEdges = CSSEdges(),
+                position: CSSEdges = CSSEdges(),
+                padding: CSSEdges = CSSEdges(),
+                size: CSSSize = CSSSize(width: Float.nan, height: Float.nan),
+                minSize: CSSSize = CSSSize(width: 0, height: 0),
+                maxSize: CSSSize = CSSSize(width: Float.greatestFiniteMagnitude, height: Float.greatestFiniteMagnitude),
+                measure: CSSMeasureFunc? = nil,
+                context: UnsafeMutableRawPointer? = nil,
+                children: [CSSNode] = [])
   {
     self.nodeRef = CSSNodeNew()
 
@@ -446,7 +463,15 @@ public class CSSNode: Hashable
     self.measure = measure
     self.context = context
     self.userInfo = userInfo
+
     self.children = children
+    // didSet is NOT called during init
+    var ndx = 0
+    for c in children {
+        insertChild(child: c, at: ndx)
+        ndx += 1
+    }
+
   }
 
   public func insertChild(child: CSSNode, at index: Int) {
