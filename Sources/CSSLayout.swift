@@ -92,9 +92,9 @@ public struct CSSLayout: CustomStringConvertible
     }
 
 
-    public func apply ( f: (CSSLayout) -> Void) {
+    public func apply ( _ f: (CSSLayout) -> Void) {
         f (self)
-        for c in children { c.apply(f: f) }
+        for c in children { c.apply(f) }
     }
 
     public var description: String {
@@ -104,18 +104,18 @@ public struct CSSLayout: CustomStringConvertible
     }
 }
 
-public class CSSNode: Hashable
+open class CSSNode: Hashable
 {
 
-    public var key: String? = nil
-    public var userInfo: Any?
+    open var key: String? = nil
+    open var userInfo: Any?
 
-    public func apply ( f: (CSSNode) -> Void) {
+    open func apply ( _ f: (CSSNode) -> Void) {
         f (self)
-        for c in children { c.apply(f: f) }
+        for c in children { c.apply(f) }
     }
 
-    public var frame: CGRect {
+    open var frame: CGRect {
         let x = CGFloat(CSSNodeLayoutGetLeft(nodeRef))
         let y = CGFloat(CSSNodeLayoutGetTop(nodeRef))
         let width = CGFloat(CSSNodeLayoutGetWidth(nodeRef))
@@ -123,7 +123,7 @@ public class CSSNode: Hashable
         return CGRect(x: x, y: y, width: width, height: height)
     }
 
-  public var direction: CSSDirection {
+  open var direction: CSSDirection {
     set {
       if newValue != direction {
         CSSNodeStyleSetDirection(nodeRef, newValue)
@@ -134,7 +134,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var flexDirection: CSSFlexDirection {
+  open var flexDirection: CSSFlexDirection {
     set {
       if newValue != flexDirection {
         CSSNodeStyleSetFlexDirection(nodeRef, newValue)
@@ -145,7 +145,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var justifyContent: CSSJustify {
+  open var justifyContent: CSSJustify {
     set {
       if newValue != justifyContent {
         CSSNodeStyleSetJustifyContent(nodeRef, newValue)
@@ -156,7 +156,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var alignContent: CSSAlign {
+  open var alignContent: CSSAlign {
     set {
       if newValue != alignContent {
         CSSNodeStyleSetAlignContent(nodeRef, newValue)
@@ -167,7 +167,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var alignItems: CSSAlign {
+  open var alignItems: CSSAlign {
     set {
       if newValue != alignItems {
         CSSNodeStyleSetAlignItems(nodeRef, newValue)
@@ -178,7 +178,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var alignSelf: CSSAlign {
+  open var alignSelf: CSSAlign {
     set {
       if newValue != alignSelf {
         CSSNodeStyleSetAlignSelf(nodeRef, newValue)
@@ -189,7 +189,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var positionType: CSSPositionType {
+  open var positionType: CSSPositionType {
     set {
       if newValue != positionType {
         CSSNodeStyleSetPositionType(nodeRef, newValue)
@@ -200,7 +200,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var flexWrap: CSSWrapType {
+  open var flexWrap: CSSWrapType {
     set {
       if newValue != flexWrap {
         CSSNodeStyleSetFlexWrap(nodeRef, newValue)
@@ -211,7 +211,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var overflow: CSSOverflow {
+  open var overflow: CSSOverflow {
     set {
       if newValue != overflow {
         CSSNodeStyleSetOverflow(nodeRef, newValue)
@@ -222,7 +222,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var flex: Float {
+  open var flex: Float {
     set {
       CSSNodeStyleSetFlex(nodeRef, newValue)
     }
@@ -235,7 +235,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var flexGrow: Float {
+  open var flexGrow: Float {
     set {
       if newValue != flexGrow {
         CSSNodeStyleSetFlexGrow(nodeRef, newValue)
@@ -246,7 +246,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var flexShrink: Float {
+  open var flexShrink: Float {
     set {
       if newValue != flexShrink {
         CSSNodeStyleSetFlexShrink(nodeRef, newValue)
@@ -257,7 +257,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var margin: CSSEdges {
+  open var margin: CSSEdges {
     set {
       if newValue != margin {
         newValue.apply(nodeRef, CSSNodeStyleSetMargin)
@@ -268,7 +268,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var position: CSSEdges {
+  open var position: CSSEdges {
     set {
       if newValue != position {
         newValue.apply(nodeRef, CSSNodeStyleSetPosition)
@@ -279,7 +279,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var padding: CSSEdges {
+  open var padding: CSSEdges {
     set {
       if newValue != padding {
         newValue.apply(nodeRef, CSSNodeStyleSetPadding)
@@ -290,7 +290,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var size: CSSSize {
+  open var size: CSSSize {
     set {
       if newValue.width != size.width {
         CSSNodeStyleSetWidth(nodeRef, newValue.width)
@@ -306,7 +306,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var minSize: CSSSize {
+  open var minSize: CSSSize {
     set {
       if newValue.width != minSize.width {
         CSSNodeStyleSetMinWidth(nodeRef, newValue.width)
@@ -322,7 +322,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var maxSize: CSSSize {
+  open var maxSize: CSSSize {
     set {
       if newValue.width != maxSize.width {
         CSSNodeStyleSetMaxWidth(nodeRef, newValue.width)
@@ -338,7 +338,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var measure: CSSMeasureFunc? {
+  open var measure: CSSMeasureFunc? {
     set {
       CSSNodeSetMeasureFunc(nodeRef, newValue)
     }
@@ -347,7 +347,7 @@ public class CSSNode: Hashable
     }
   }
 
-  public var context: UnsafeMutableRawPointer? {
+  open var context: UnsafeMutableRawPointer? {
     set {
       CSSNodeSetContext(nodeRef, newValue)
     }
@@ -395,21 +395,21 @@ public class CSSNode: Hashable
   }
  */
 
-    public var children: [CSSNode] = [] {
+    open var children: [CSSNode] = [] {
         didSet {
             var ndx = 0
             for c in children {
-                insertChild(child: c, at: ndx)
+                insertChild(c, at: ndx)
                 ndx += 1
             }
         }
     }
 
-  public var hashValue: Int {
+  open var hashValue: Int {
     return nodeRef.hashValue
   }
 
-  public let nodeRef: CSSNodeRef
+  open let nodeRef: CSSNodeRef
 
   public init() {
     self.nodeRef = CSSNodeNew()
@@ -468,34 +468,34 @@ public class CSSNode: Hashable
     // didSet is NOT called during init
     var ndx = 0
     for c in children {
-        insertChild(child: c, at: ndx)
+        insertChild(c, at: ndx)
         ndx += 1
     }
 
   }
 
-  public func insertChild(child: CSSNode, at index: Int) {
+  open func insertChild(_ child: CSSNode, at index: Int) {
     CSSNodeInsertChild(nodeRef, child.nodeRef, UInt32(index))
   }
 
-  public func removeChild(child: CSSNode) {
+  open func removeChild(_ child: CSSNode) {
     CSSNodeRemoveChild(nodeRef, child.nodeRef)
   }
 
-  public func markDirty() {
+  open func markDirty() {
     CSSNodeMarkDirty(nodeRef)
   }
 
-  public func calculateLayout(availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) {
+  open func calculateLayout(_ availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) {
     CSSNodeCalculateLayout(nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
   }
 
-  public func layout(availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) -> CSSLayout {
+  open func layout(_ availableWidth: Float = Float.nan, availableHeight: Float = Float.nan) -> CSSLayout {
     CSSNodeCalculateLayout(nodeRef, availableWidth, availableHeight, CSSDirectionLTR)
     return CSSLayout(node: self)
   }
 
-  public func debugPrint() {
+  open func debugPrint() {
     let options = CSSPrintOptionsLayout.rawValue | CSSPrintOptionsStyle.rawValue | CSSPrintOptionsChildren.rawValue
     CSSNodePrint(nodeRef, CSSPrintOptions(options))
   }
